@@ -32,26 +32,21 @@ public class FiboA {
         //здесь простейший вариант, в котором код совпадает
         //с математическим определением чисел Фибоначчи
         //время O(2^n)
-
-        int pred = 0;
-        int curr = 1;
-
-        for (int i=0; i<n-1; i++){
-
-
-            curr = curr + pred;
-            pred = curr - pred;
-
-
+        if (n <= 1){
+            return n;
         }
-        return curr;
+        return calc(n-1) + calc(n-2);
     }
 
 
     BigInteger slowA(Integer n) {
-        if (n <= 1){
+        if (n == 1){
             return BigInteger.ONE;
         }
+        if (n == 0){
+            return BigInteger.ZERO;
+        }
+
         //рекурсия
         //здесь нужно реализовать вариант без ограничения на размер числа,
         //в котором код совпадает с математическим определением чисел Фибоначчи
@@ -63,4 +58,5 @@ public class FiboA {
 
 
 }
+
 
